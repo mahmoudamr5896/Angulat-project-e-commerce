@@ -1,0 +1,38 @@
+<div class="container d-flex justify-content-center mt-5" >
+    <form  class="border w-200 p-5" style="margin-top: 60px;width: 400px;">
+    <!-- Email input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="email" #username id="form2Example1" placeholder="Email address" class="form-control" />
+    </div>
+  
+    <!-- Password input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="password" #password placeholder="EnterPassword" id="form2Example2" class="form-control" />
+    </div> 
+    <!-- Submit button -->
+    <button type="button" [disabled]="isloguser" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4" (click)="loginuser(username.value,password.value)">Sign in</button>
+  
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>Not a member? <a routerLink="/register">Register</a></p>
+      <p>or sign up with:</p>
+      <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-facebook-f"></i>
+      </button>
+  
+      <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-google"></i>
+      </button>
+  
+      <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-twitter"></i>
+      </button>
+  
+      <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-github"></i>
+      </button>
+    </div>
+  </form>
+</div>
+
+

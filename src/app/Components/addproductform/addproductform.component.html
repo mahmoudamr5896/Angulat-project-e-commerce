@@ -1,0 +1,30 @@
+<h2>Add Product</h2>
+{{ newprod | json }}
+<div class="container" style="height: 600px;">
+    <form (submit)="addProduct()" >
+  <div class="mb-3">
+    <label for="name" class="form-label">Name:</label>
+    <input type="text" id="name" name="name" class="form-control" required [(ngModel)]="newprod.name">
+  </div>
+  <div class="mb-3">
+    <label for="price" class="form-label">Price:</label>
+    <input type="number" id="price" name="price" class="form-control" required [(ngModel)]="newprod.price">
+  </div>
+  <div class="mb-3">
+    <label for="quantity" class="form-label">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" class="form-control" required [(ngModel)]="newprod.quantity">
+  </div>
+  <div class="mb-3">
+    <label for="imgURL" class="form-label">Image URL:</label>
+    <input type="file" id="imgURL" name="imgURL" class="form-control" required [(ngModel)]="newprod.imgURL">
+  </div>
+  <div class="mb-3">
+    <label for="category" class="form-label">Category:</label>
+    <select id="category" name="category" class="form-select" [(ngModel)]="newprod.Category">
+      <option *ngFor="let category of categories" class="form-select" [value]="category.id">{{ category.name }}</option>
+    </select>
+  </div>
+      <button type="submit" class="btn btn-primary">Add Product</button>
+</form>
+</div>
+

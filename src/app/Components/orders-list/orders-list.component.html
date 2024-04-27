@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let prod of orders let i = index" [hidden]='prod.status===false'>
+        <div class="card mb-3" [style.background-color]="(prod.quantity == 1) ? 'yellow' : 'white'">
+          <img [src]="prod.imgURL" class="card-img-top" alt="Product Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ prod.name }}</h5>
+            <p class="card-text">Price: {{ prod.price | currency }}</p>
+            <p class="card-text">Stock: {{ prod.quantity }}</p>
+            <div class="input-group mb-3">
+              <input type="number"  class="form-control" [value]="prod.numitem" name="quantity" min="1" max="{{ prod.quantity }}">
+            </div>
+            <button class="btn btn-primary" (click)="openproductId(prod.id)">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6" [hidden]='orders===false'>
+        <h4>Total Price: {{ calculateTotalPrice() | currency }}</h4>
+        <button class="btn btn-primary" (click)="purchaseItems()">Purchase Items</button>
+      </div>
+    </div>
+  </div>
+  

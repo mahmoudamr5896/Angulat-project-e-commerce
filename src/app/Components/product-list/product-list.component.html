@@ -1,0 +1,48 @@
+<div class="container">
+   <h2>Filter By Category</h2>
+<select class="form-control" name="category" id="category" [(ngModel)]="SelectedCategoryId">
+    <option value="0" selected>All</option>
+    <option *ngFor="let item of Category" [value]="item.id">{{ item.name }}</option>
+</select>
+<app-products
+ [selectId]="SelectedCategoryId"
+ (orderedProduct)="handleOrderedProduct($event)"
+ (countProduct)="handleCountProduct($event)"
+></app-products> 
+</div>
+
+<hr>
+<hr>
+<hr>
+<!-- <h3>Your Cart</h3>
+<table class="table">
+    <thead>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Img</th>
+        <th>Instock</th> 
+        <th>No.item</th>
+        <th>Remove Item</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prod of Ordered let i = index"
+        [class.d-none]="prod?.quantity == 0"
+        [style.background-color]="(prod.quantity == 1) ? 'yellow' : 'white'">
+   <td>{{i+1}}</td>
+   <td>{{prod?.name}}</td>
+   <td>{{prod?.price | currency}}</td>
+   <td><img [src]="prod?.imgURL" alt="" width="100px"></td>
+   <td>{{prod?.quantity}}</td>
+   <td>
+       <div>
+           <input type="number" [value]="Countproduct"  name="quantity"  min="1" max="{{prod?.quantity}}">
+       </div>
+   </td>
+   <td><button class="btn btn-danger" (click)="emitRemoveItem(prod.id)" >Remove</button></td>
+        </tr>
+  </tbody>
+</table>
+<h3>
+    Total Price : {{totalprice}}
+</h3> -->

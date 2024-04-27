@@ -1,0 +1,62 @@
+<!-- Product Page -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4" *ngFor="let prod of ProductOfCaegory let i = index">
+            <div class="card"  [style.background-color]="(prod.quantity == 1) ? 'yellow' : 'white'">
+                <img [src]="prod?.imgURL" class="card-img-top" alt="Product Image" width="200px" height="200px">
+                <div class="card-body">
+                    <h5 class="card-title">{{ prod?.name }}</h5>
+                    <p class="card-text">Price: {{ prod?.price | currency }}</p>
+                    <p class="card-text">Quantity: {{ prod?.quantity }}</p>
+                    <div class="input-group mb-3">
+                        <input type="number" #item class="form-control" name="quantity" [class.d-none]="prod?.quantity == 0" min="1" max="{{ prod?.quantity }}">
+                        <button class="btn btn-outline-success mt-2" type="button" [class.d-none]="prod?.quantity == 0" (click)="Addtocart(prod,item.value)">Add to Cart</button>
+                    </div>
+                    <button class="btn btn-primary" (click)="openproductId(prod.id)">Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  -->
+<!-- <h3>Products List</h3> -->
+<!-- <table class="table mt-5">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Img</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>No.items</th>
+        <th>Detail</th>
+        <th>Add to Cart</th>
+    </thead>
+    <tbody >
+        <tr *ngFor="let prod of ProductOfCaegory let i = index"
+                 [class.d-none]="prod?.quantity == 0"
+                 [style.background-color]="(prod.quantity == 1) ? 'yellow' : 'white'">
+            <td>{{i+1}}</td>
+            <td>{{prod?.name}}</td>
+            <td><img [src]="prod?.imgURL" alt="" width="100px"></td>
+            <td>{{prod?.price | currency}}</td>
+            <td>{{prod?.quantity}}</td>
+            <td>
+                <div>
+                    <input type="number" #item  name="quantity"  min="1" max="{{prod?.quantity}}">
+                </div>
+            </td>
+            <td><button class="btn btn-primary" (click)="openproductId(prod.id)">Detail</button></td>
+            <td><button class="btn btn-success" (click)="buyItem(prod.id,item.value,prod)">Add to Card</button></td>
+        </tr>
+
+    </tbody>
+</table> -->
+
+
+<hr>
+<!-- <h3>
+    Total Price : {{totalprice}}
+</h3> -->
+<hr>
+<hr>
+<hr>
